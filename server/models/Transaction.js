@@ -10,7 +10,11 @@ const transactionSchema = new Schema({
     subcategory: [{ 
         type: Schema.Types.ObjectId, 
         ref: 'Category' 
-    }]
+    }],
+    date: {
+        type: Date,
+        default: Date.now
+    }
 });
 
 module.exports = Transaction = mongoose.model('Transaction', transactionSchema);
