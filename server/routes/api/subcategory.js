@@ -9,6 +9,7 @@ const Subcategory = require('../../models/Subcategory');
 // @access  Public
 router.get('/', (req, res) => {
     Subcategory.find()
+        .populate('Category')
         .then(subcategories => res.json(subcategories))
 });
 
