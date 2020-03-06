@@ -1,7 +1,10 @@
 const express = require('express');
 const mongoose = require('mongoose');
 
-const items = require('./routes/api/item');
+// Models
+const item = require('./routes/api/item');
+const category = require('./routes/api/category');
+const paycheck = require('./routes/api/paycheck');
 
 const app = express();
 
@@ -18,7 +21,9 @@ mongoose
     .catch(err => console.log(err));
 
 // Use Routes
-app.use('/api/items', items);
+app.use('/api/item', item);
+app.use('/api/category', category);
+app.use('/api/paycheck', paycheck);
 
 const port = process.env.PORT || 5000;
 
