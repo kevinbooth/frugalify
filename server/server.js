@@ -1,6 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
 
+const items = require('./routes/api/items');
+
 const app = express();
 
 // Body Parse Middleware
@@ -14,6 +16,9 @@ mongoose
     .connect(db, { useUnifiedTopology: true, useNewUrlParser: true })
     .then(() => console.log('MongoDB Connected'))
     .catch(err => console.log(err));
+
+// Use Routes
+app.use('/api/items', items);
 
 const port = process.env.PORT || 5000;
 
