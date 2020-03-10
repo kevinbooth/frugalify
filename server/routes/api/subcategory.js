@@ -4,7 +4,7 @@ const router = express.Router();
 // Subcategory Model
 const Subcategory = require('../../models/Subcategory');
 
-// @route   GET api/Subcategories
+// @route   GET api/subcategories
 // @desc    Get All Subcategories
 // @access  Public
 router.get('/', (req, res) => {
@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
         .then(subcategories => res.json(subcategories))
 });
 
-// @route   POST api/Subcategories
+// @route   POST api/subcategories
 // @desc    Create An Subcategory
 // @access  Public
 router.post('/', (req, res) => {
@@ -25,7 +25,7 @@ router.post('/', (req, res) => {
         .then(subcategory => res.json(subcategory));
 });
 
-// @route   DELETE api/Subcategories
+// @route   DELETE api/subcategories/:id
 // @desc    Delete An Subcategory
 // @access  Public
 router.delete('/:id', (req, res) => {

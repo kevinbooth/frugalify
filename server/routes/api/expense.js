@@ -4,7 +4,7 @@ const router = express.Router();
 // Expense Model
 const Expense = require('../../models/Expense');
 
-// @route   GET api/Expenses
+// @route   GET api/expense
 // @desc    Get All Expenses
 // @access  Public
 router.get('/', (req, res) => {
@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
         .then(expenses => res.json(expenses))
 });
 
-// @route   POST api/Expenses
+// @route   POST api/Expense
 // @desc    Create An Expense
 // @access  Public
 router.post('/', (req, res) => {
@@ -25,7 +25,7 @@ router.post('/', (req, res) => {
         .then(expense => res.json(expense));
 });
 
-// @route   DELETE api/Expenses
+// @route   DELETE api/expense/:id
 // @desc    Delete An Expense
 // @access  Public
 router.delete('/:id', (req, res) => {

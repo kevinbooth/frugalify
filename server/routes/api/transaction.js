@@ -4,7 +4,7 @@ const router = express.Router();
 // Transaction Model
 const Transaction = require('../../models/Transaction');
 
-// @route   GET api/Transactions
+// @route   GET api/transactions
 // @desc    Get All Transactions
 // @access  Public
 router.get('/', (req, res) => {
@@ -13,8 +13,8 @@ router.get('/', (req, res) => {
         .then(transactions => res.json(transactions))
 });
 
-// @route   POST api/Transactions
-// @desc    Create An Transaction
+// @route   POST api/transactions
+// @desc    Create A Transaction
 // @access  Public
 router.post('/', (req, res) => {
     const newTransaction = new Transaction({
@@ -25,8 +25,8 @@ router.post('/', (req, res) => {
         .then(transaction => res.json(transaction));
 });
 
-// @route   DELETE api/Transactions
-// @desc    Delete An Transaction
+// @route   DELETE api/transactions/:id
+// @desc    Delete A Transaction
 // @access  Public
 router.delete('/:id', (req, res) => {
     Transaction.findById(req.params.id)

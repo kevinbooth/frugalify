@@ -4,7 +4,7 @@ const router = express.Router();
 // Paycheck Model
 const Paycheck = require('../../models/Paycheck');
 
-// @route   GET api/Paychecks
+// @route   GET api/paychecks
 // @desc    Get All Paychecks
 // @access  Public
 router.get('/', (req, res) => {
@@ -13,8 +13,8 @@ router.get('/', (req, res) => {
         .then(paychecks => res.json(paychecks))
 });
 
-// @route   POST api/Paychecks
-// @desc    Create An Paycheck
+// @route   POST api/paychecks
+// @desc    Create A Paycheck
 // @access  Public
 router.post('/', (req, res) => {
     const newPaycheck = new Paycheck({
@@ -25,8 +25,8 @@ router.post('/', (req, res) => {
         .then(paycheck => res.json(paycheck));
 });
 
-// @route   DELETE api/Paychecks
-// @desc    Delete An Paycheck
+// @route   DELETE api/paychecks/:id
+// @desc    Delete A Paycheck
 // @access  Public
 router.delete('/:id', (req, res) => {
     Paycheck.findById(req.params.id)

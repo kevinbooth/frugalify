@@ -4,16 +4,16 @@ const router = express.Router();
 // Category Model
 const Category = require('../../models/Category');
 
-// @route   GET api/Categories
-// @desc    Get All Categorys
+// @route   GET api/category
+// @desc    Get All Categories
 // @access  Public
 router.get('/', (req, res) => {
     Category.find()
         .then(categories => res.json(categories))
 });
 
-// @route   POST api/Categories
-// @desc    Create An Category
+// @route   POST api/category
+// @desc    Create A Category
 // @access  Public
 router.post('/', (req, res) => {
     const newCategory = new Category({
@@ -24,8 +24,8 @@ router.post('/', (req, res) => {
         .then(category => res.json(category));
 });
 
-// @route   DELETE api/Categories
-// @desc    Delete An Category
+// @route   DELETE api/category/:id
+// @desc    Delete A Category
 // @access  Public
 router.delete('/:id', (req, res) => {
     Category.findById(req.params.id)
