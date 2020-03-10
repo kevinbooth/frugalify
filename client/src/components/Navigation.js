@@ -5,7 +5,7 @@ class Navigation extends Component {
     render() {
         return(
             <nav>
-                <div>Frugalify</div>
+                <div class="nav__logo">frugalify</div>
             </nav>
         );
     }
