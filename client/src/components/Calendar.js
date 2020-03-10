@@ -4,8 +4,8 @@ class Calendar extends Component {
 
     render() {
         return(
-            <div class="calendar">
-                <div class="calendar__date"><span>March</span>2020</div>
+            <div className="calendar">
+                <div className="calendar__date"><span>March</span>2020</div>
             </div>
         );
     }

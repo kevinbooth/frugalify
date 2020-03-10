@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App">
       <Navigation />
-      <div class="container">
+      <div className="container">
         <Calendar />
         <Category type={'Paycheck'} />
         <Category type={'Giving'} />
