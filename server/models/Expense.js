@@ -11,10 +11,12 @@ const expenseSchema = new Schema({
         type: Date,
         default: Date.now
     },
-    subcategory: [{ 
-        type: Schema.Types.ObjectId, 
-        ref: 'Subcategory' 
-    }]
+    subcategory: [
+        { 
+            type: Schema.Types.ObjectId, 
+            ref: 'Subcategory' 
+        }
+    ]
 });
 
 module.exports = Expense = mongoose.model('Expense', expenseSchema);

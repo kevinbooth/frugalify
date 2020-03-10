@@ -7,10 +7,12 @@ const transactionSchema = new Schema({
         type: mongoose.Types.Decimal128,
         default: 0
     },
-    subcategory: [{ 
-        type: Schema.Types.ObjectId, 
-        ref: 'Category' 
-    }],
+    subcategory: [
+        { 
+            type: Schema.Types.ObjectId, 
+            ref: 'Category' 
+        }
+    ],
     date: {
         type: Date,
         default: Date.now
