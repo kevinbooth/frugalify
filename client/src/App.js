@@ -13,6 +13,7 @@ function App() {
       <div class="container">
         <Calendar />
         <Category type={'Paycheck'} />
+        <Category type={'Giving'} />
       </div>
     </div>
   );

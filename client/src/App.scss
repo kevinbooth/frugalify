@@ -24,9 +24,9 @@ nav, .nav {
     box-sizing: border-box;
     background-color: #ffffff;
 
-    -webkit-box-shadow: 0 0 1rem 0 #ccc;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
-    -moz-box-shadow:    0 0 1rem 0 #ccc;  /* Firefox 3.5 - 3.6 */
-    box-shadow:         0 0 1rem 0 #ccc;  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+    -webkit-box-shadow: 0 0 1rem -0.25rem #ccc;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+    -moz-box-shadow:    0 0 1rem -0.25rem #ccc;  /* Firefox 3.5 - 3.6 */
+    box-shadow:         0 0 1rem -0.25rem #ccc;  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
 
     padding: .5rem;
     position: fixed;
@@ -52,19 +52,23 @@ nav, .nav {
     box-sizing: border-box;
     width: 100%;
     padding: 0 2rem;
+    
+    @media screen and (min-width: 60em) {
+        padding: 0 4rem;
+    }
 }
 
 .category {
     background-color: #ffffff;
     border-radius: .75rem;
 
-    -webkit-box-shadow: 0 0 1rem 0 #ccc;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
-    -moz-box-shadow:    0 0 1rem 0 #ccc;  /* Firefox 3.5 - 3.6 */
-    box-shadow:         0 0 1rem 0 #ccc;  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+    -webkit-box-shadow: 0 0 1rem -0.25rem #ccc;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+    -moz-box-shadow:    0 0 1rem -0.25rem #ccc;  /* Firefox 3.5 - 3.6 */
+    box-shadow:         0 0 1rem -0.25rem #ccc;  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
 
     box-sizing: border-box;
     width: 100%;
-    margin-bottom: 5rem;
+    margin-bottom: 3rem;
     max-width: 65rem;
     padding: 3rem;
 
