@@ -22,7 +22,8 @@ router.post('/', (req, res) => {
     });
 
     newTransaction.save()
-        .then(transaction => res.json(transaction));
+        .then(transaction => res.json(transaction))
+        .catch((err) => res.status(500).json({ err }));
 });
 
 // @route   DELETE api/transactions/:id
@@ -31,7 +32,7 @@ router.post('/', (req, res) => {
 router.delete('/:id', (req, res) => {
     Transaction.findById(req.params.id)
         .then(transaction => transaction.remove().then(() => res.json({ success: true })))
-        .catch(err => res.status(404).json({ success: false }));
+        .catch(err => res.status(404).json({ err }));
 });
 
 

@@ -18,11 +18,14 @@ router.get('/', (req, res) => {
 // @access  Public
 router.post('/', (req, res) => {
     const newPaycheck = new Paycheck({
-        name: req.body.name
+        planned: req.body.planned,
+        actual: req.body.actual,
+        date: req.body.date
     });
 
     newPaycheck.save()
-        .then(paycheck => res.json(paycheck));
+        .then(paycheck => res.json(paycheck))
+        .catch((err) => res.status(500).json({ err }));
 });
 
 // @route   DELETE api/paychecks/:id
@@ -31,7 +34,7 @@ router.post('/', (req, res) => {
 router.delete('/:id', (req, res) => {
     Paycheck.findById(req.params.id)
         .then(paycheck => paycheck.remove().then(() => res.json({ success: true })))
-        .catch(err => res.status(404).json({ success: false }));
+        .catch(err => res.status(404).json({ err }));
 });
 
 

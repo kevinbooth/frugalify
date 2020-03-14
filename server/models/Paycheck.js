@@ -3,11 +3,11 @@ const Schema = mongoose.Schema;
 
 // Create Schema
 const paycheckSchema = new Schema({
-    plannedAmount: {
+    planned: {
         type: mongoose.Types.Decimal128,
         required: true
     },
-    actualAmount: {
+    actual: {
         type: mongoose.Types.Decimal128,
         default: 0
     },

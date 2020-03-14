@@ -22,7 +22,8 @@ router.post('/', (req, res) => {
     });
 
     newExpense.save()
-        .then(expense => res.json(expense));
+        .then(expense => res.json(expense))
+        .catch((err) => res.status(500).json({ err }));
 });
 
 // @route   DELETE api/expense/:id
@@ -31,7 +32,7 @@ router.post('/', (req, res) => {
 router.delete('/:id', (req, res) => {
     Expense.findById(req.params.id)
         .then(expense => expense.remove().then(() => res.json({ success: true })))
-        .catch(err => res.status(404).json({ success: false }));
+        .catch(err => res.status(404).json({ err }));
 });
 
 
