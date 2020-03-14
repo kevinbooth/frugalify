@@ -7,8 +7,8 @@ const categorySchema = new Schema({
         type: String,
         default: 0
     },
-    subcategory: [
-        { 
+    subcategories: [
+        {
             type: Schema.Types.ObjectId,
             ref: 'Subcategory' 
         }

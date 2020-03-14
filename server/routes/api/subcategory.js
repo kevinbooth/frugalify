@@ -18,11 +18,24 @@ router.get('/', (req, res) => {
 // @access  Public
 router.post('/', (req, res) => {
     const newSubcategory = new Subcategory({
-        name: req.body.name
+        name: req.body.name,
+        category: req.body.category
     });
 
     newSubcategory.save()
-        .then(subcategory => res.json(subcategory));
+        .then(subcategory => {
+            Category.findOne({ _id: newSubcategory.category }, (err, category) => {
+                if (category) {
+                    category.subcategories.push(newSubcategory);
+                    category.save();
+
+                    res.json(subcategory)
+                }
+            });
+        })
+        .catch((err) => {
+            res.status(500).json({ err });
+        });
 });
 
 // @route   DELETE api/subcategories/:id
