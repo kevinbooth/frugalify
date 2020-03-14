@@ -9,7 +9,7 @@ const Subcategory = require('../../models/Subcategory');
 // @access  Public
 router.get('/', (req, res) => {
     Subcategory.find()
-        .populate('Category')
+        .populate('category')
         .then(subcategories => res.json(subcategories))
 });
 
@@ -33,9 +33,7 @@ router.post('/', (req, res) => {
                 }
             });
         })
-        .catch((err) => {
-            res.status(500).json({ err });
-        });
+        .catch((err) => res.status(500).json({ err }));
 });
 
 // @route   DELETE api/subcategories/:id
@@ -44,7 +42,7 @@ router.post('/', (req, res) => {
 router.delete('/:id', (req, res) => {
     Subcategory.findById(req.params.id)
         .then(subcategory => subcategory.remove().then(() => res.json({ success: true })))
-        .catch(err => res.status(404).json({ success: false }));
+        .catch(err => res.status(404).json({ err }));
 });
 
 
