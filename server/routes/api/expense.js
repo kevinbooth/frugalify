@@ -18,11 +18,23 @@ router.get('/', (req, res) => {
 // @access  Public
 router.post('/', (req, res) => {
     const newExpense = new Expense({
-        name: req.body.name
+        planned: req.body.planned,
+        actual: req.body.actual,
+        subcategory: req.body.subcategory,
+        date: req.body.date,
     });
 
     newExpense.save()
-        .then(expense => res.json(expense))
+        .then(expense => {
+            Subcategory.findOne({ _id: newExpense.subcategory }, (err, subcategory) => {
+                if (subcategory) {
+                    subcategory.expenses.push(newExpense);
+                    subcategory.save();
+
+                    res.json(expense)
+                }
+            });
+        })
         .catch((err) => res.status(500).json({ err }));
 });
 

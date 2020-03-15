@@ -9,7 +9,8 @@ const Subcategory = require('../../models/Subcategory');
 // @access  Public
 router.get('/', (req, res) => {
     Subcategory.find()
-        .populate('category')
+        .populate({ path: 'category', select: 'name'})
+        .populate({ path: 'expenses', select: 'planned actual date'})
         .then(subcategories => res.json(subcategories))
 });
 

@@ -6,6 +6,7 @@ const item = require('./routes/api/item');
 const category = require('./routes/api/category');
 const subcategory = require('./routes/api/subcategory');
 const paycheck = require('./routes/api/paycheck');
+const expense = require('./routes/api/expense');
 const transaction = require('./routes/api/transaction');
 
 const app = express();
@@ -27,6 +28,7 @@ app.use('/api/item', item);
 app.use('/api/category', category);
 app.use('/api/subcategory', subcategory);
 app.use('/api/paycheck', paycheck);
+app.use('/api/expense', expense);
 app.use('/api/transaction', transaction);
 
 const port = process.env.PORT || 5000;
