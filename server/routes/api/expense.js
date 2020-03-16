@@ -11,6 +11,22 @@ router.get('/', (req, res) => {
     Expense.find()
         .sort({ date: -1 })
         .then(expenses => res.json(expenses))
+        .catch((err) => res.status(500).json({ err }));
+});
+
+// @route   GET api/expense/:year/:month
+// @desc    Get Expenses by year and month
+// @access  Public
+router.get('/:year/:month', (req, res) => {
+    Expense.find({ 
+            date:  { 
+                "$gte": new Date(req.params.year, req.params.month - 1, 1), 
+                "$lte": new Date(req.params.year, req.params.month, 0) 
+            } 
+        })
+        .sort({ date: -1 })
+        .then(expenses => res.json(expenses))
+        .catch((err) => res.status(500).json({ err }));
 });
 
 // @route   POST api/Expense
