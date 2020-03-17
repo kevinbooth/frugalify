@@ -13,6 +13,21 @@ router.get('/', (req, res) => {
         .then(paychecks => res.json(paychecks))
 });
 
+// @route   GET api/paycheck/:year/:month
+// @desc    Get Paychecks by year and month
+// @access  Public
+router.get('/:year/:month', (req, res) => {
+    Paycheck.find({ 
+            date:  { 
+                "$gte": new Date(req.params.year, req.params.month - 1, 1), 
+                "$lte": new Date(req.params.year, req.params.month, 0) 
+            } 
+        })
+        .sort({ date: -1 })
+        .then(paychecks => res.json(paychecks))
+        .catch((err) => res.status(500).json({ err }));
+});
+
 // @route   POST api/paychecks
 // @desc    Create A Paycheck
 // @access  Public
