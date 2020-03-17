@@ -13,6 +13,21 @@ router.get('/', (req, res) => {
         .then(transactions => res.json(transactions))
 });
 
+// @route   GET api/transaction/:year/:month
+// @desc    Get Transactions by year and month
+// @access  Public
+router.get('/:year/:month', (req, res) => {
+    Transaction.find({ 
+            date:  { 
+                "$gte": new Date(req.params.year, req.params.month - 1, 1), 
+                "$lte": new Date(req.params.year, req.params.month, 0) 
+            } 
+        })
+        .sort({ date: -1 })
+        .then(transactions => res.json(transactions))
+        .catch((err) => res.status(500).json({ err }));
+});
+
 // @route   POST api/transactions
 // @desc    Create A Transaction
 // @access  Public
